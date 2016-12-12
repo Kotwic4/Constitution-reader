@@ -2,22 +2,22 @@ package agh.cs.lab8;
 
 import java.util.LinkedList;
 
-class Chapter {
-    int number;
-    String title;
-    LinkedList<Article> articles = new LinkedList<>();
+public class Chapter {
+    final int number;
+    final String title;
+    private LinkedList<Article> articles = new LinkedList<>();
     Chapter(int number, String title){
         this.number = number;
         this.title = title;
     }
-    void addArticle(Article article){
+    public void addArticle(Article article){
         this.articles.add(article);
     }
     public String toString(){
-        return "Rozdział " + RomanDigit.fromIntToRoman(this.number) + "\n" + this.title + "\n" + this.toString(new Option(OptionType.Article,this.getFirstArticleNumber(), this.getLastArticleNumber()));
+        return "Rozdział " + RomanNumber.fromIntToRoman(this.number) + "\n" + this.title + "\n" + this.toString(new Option(OptionType.Article,this.getFirstArticleNumber(), this.getLastArticleNumber()));
     }
-    String toString(Option option){
-        if(option.type != OptionType.Article || option.first < this.getFirstArticleNumber() || option.last > this.getLastArticleNumber()) throw new IllegalArgumentException(); //// TODO: 12.12.2016
+    public String toString(Option option){
+        if(option.type != OptionType.Article || option.first < this.getFirstArticleNumber() || option.last > this.getLastArticleNumber()) throw new IllegalArgumentException("Nie poprawne zapytanie o artykuły rodziału");
         StringBuilder answer = new StringBuilder();
         for (Article article: this.articles) {
             if(article.number > option.last) break;
@@ -27,13 +27,11 @@ class Chapter {
         }
         return answer.toString();
     }
-    int getFirstArticleNumber(){
-        if(this.articles.isEmpty()) throw new IllegalArgumentException(); //// TODO: 12.12.2016
+    public int getFirstArticleNumber(){
         return this.articles.getFirst().number;
     }
 
-    int getLastArticleNumber(){
-        if(this.articles.isEmpty()) throw new IllegalArgumentException(); //// TODO: 12.12.2016
+    public int getLastArticleNumber(){
         return this.articles.getLast().number;
     }
 }

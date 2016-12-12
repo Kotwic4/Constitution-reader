@@ -1,11 +1,11 @@
 package agh.cs.lab8;
 
-class Article {
+public class Article {
 
-    int number;
-    String content;
+    final int number;
+    final String content;
 
-    Article(int number, String content){
+    public Article(int number, String content){
         this.number = number;
         this.content = content;
     }

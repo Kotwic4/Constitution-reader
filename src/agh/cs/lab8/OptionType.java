@@ -1,6 +1,7 @@
 package agh.cs.lab8;
 
-enum OptionType {
+public enum OptionType {
+    Constitution,
     Chapter,
     Article
 }
