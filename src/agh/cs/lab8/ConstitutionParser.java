@@ -48,6 +48,7 @@ public class ConstitutionParser{
         input.removeFirst();
         StringBuilder builder = new StringBuilder();
         while(!input.isEmpty() && !input.getFirst().matches("Rozdział .+") && !input.getFirst().matches("Art\\..+")){
+            if(!builder.toString().equals("")) builder.append(" ");
             String line = input.getFirst();
             input.removeFirst();
             if((line.matches("\\d+\\).+") || line.matches("\\d+\\..+"))&& !builder.toString().equals("")) builder.append("\n");
