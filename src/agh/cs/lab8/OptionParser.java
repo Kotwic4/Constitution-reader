@@ -20,6 +20,7 @@ class OptionParser {
                     {
                         i++;
                         int secondC = Integer.parseInt(args[i]);
+                        if(secondC <= firstC) throw new IllegalArgumentException("Nie poprawny argument : " + args[i]);
                         options.add(new Option(OptionType.Chapter,firstC,secondC));
                     }
                     break;
@@ -34,6 +35,7 @@ class OptionParser {
                     {
                         i++;
                         int secondA = Integer.parseInt(args[i]);
+                        if(secondA <= firstA) throw new IllegalArgumentException("Nie poprawny argument : " + args[i]);
                         options.add(new Option(OptionType.Article,firstA,secondA));
                     }
                     break;
