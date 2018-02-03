@@ -1,6 +1,6 @@
 # Constitution-reader
 
-Created by Radomir Krawczykiewicz
+First project assigment for Object Oriented Programing course at AGH UST
 
 Assigment description can be found [here](https://github.com/apohllo/obiektowe-lab/tree/master/lab8)
 
